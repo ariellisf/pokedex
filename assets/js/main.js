@@ -1,21 +1,28 @@
 
 const offset = 0
-const url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=10'
+const limit = 10
 
-// requisição
-fetch(url)
+const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
-    // faça alguma coisa => then
 
-    // primeiro then retorna a promise (converte como json)
+function convertPokemonToLi(pokemon){
 
-    // utilizando arrow function "=>" no callback
+    return `
+        <li class="pokemon">
+            <span class="pokemon-name"> ${pokemon.name}</span>
+        </li>
+    `
+}
 
-    .then((response) => response.json())
+const pokemonList = document.getElementById("pokemonList")
 
-    .then((jsonBody) => console.log(jsonBody))
 
-    // quando da erro
-    .catch((error) => console.log(error))
+pokeApi.getPokemons().then((pokemons = []) => {
+
+    // pega a lista de pokemons, converte para uma lista de Li, junta todos eles sem separador e faça concatenar no HTML que tenho
+    pokemonList.innerHTML = pokemons.map(convertPokemonToLi).join('')
+
+})
+
 
 
