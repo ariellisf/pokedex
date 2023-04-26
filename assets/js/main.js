@@ -1,7 +1,7 @@
 const pokemonList = document.getElementById("pokemonList")
 const loadMoreButton = document.getElementById("loadMoreButton")
 
-const limit = 10
+const limit = 20
 let offset = 0
 
 
@@ -19,7 +19,7 @@ function loadPokemonItems(offset, limit){
         // pega a lista de pokemons, converte para uma lista de Li, junta todos eles sem separador e faça concatenar no HTML que tem
         const newHtml = pokemons.map((pokemon) => `
             <li class="pokemon ${pokemon.type}">
-                <span class="pokemon-number"> ${pokemon.order}</span>
+                <span class="pokemon-number"> ${pokemon.id}</span>
                 <span class="pokemon-name"> ${pokemon.name}</span>
     
                 <div class="pokemon-detail">
