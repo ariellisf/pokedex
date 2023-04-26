@@ -7,12 +7,7 @@ let offset = 0
 
 
 function loadPokemonItems(offset, limit){
-    function convertPokemonToLi(pokemon){
 
-        return `
-            
-        `
-    }
     
     pokeApi.getPokemons(offset,limit).then((pokemons = []) => {
 
